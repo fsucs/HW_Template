@@ -1,9 +1,9 @@
-
-all:
-	cd src; make; cd ..
-
+all: example
+	doxygen Doxyfile
+	
+example: ./src/main.cpp ./include/example.hpp
+	g++ -g -Wall -I ./include/ ./src/main.cpp -o ./bin/example
+	
 clean:
-	cd src; make clean; cd ..;
 	rm -rf ./doc/*
 	rm -rf ./bin/*
-
