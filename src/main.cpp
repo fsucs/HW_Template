@@ -24,17 +24,20 @@ Or else you loose points.
 
 #include <iostream>
 #include <example.hpp>
+#include <assert.h>
+#include <string>
 
-int get_max_count(char *input){
+int get_max_count(std::string sinput){
     return 0;
 }
 
 int main(int argc, char *argv[]){
-	if( argc == 1 ) 
-		std::cout << "Please give an argument\n";
-	else 
-		std::cout << "The first argument was :" << argv[1] 
-			  << std::endl; 
+    using namespace std;
+    string line; 
+    cout << "Please input a string: "; getline(cin, line);
+
+    string test1("c++");
+    assert(get_max_count(test1) == 2);
 	return 0;
 
 }
