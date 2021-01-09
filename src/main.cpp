@@ -25,6 +25,10 @@ Or else you loose points.
 #include <iostream>
 #include <example.hpp>
 
+int get_max_count(char *input){
+    return 0;
+}
+
 int main(int argc, char *argv[]){
 	if( argc == 1 ) 
 		std::cout << "Please give an argument\n";
