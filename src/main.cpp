@@ -21,7 +21,6 @@ Or else you loose points.
 
 */
 
-
 #include <iostream>
 #include <example.hpp>
 #include <assert.h>
@@ -33,11 +32,17 @@ int get_max_count(std::string sinput){
 
 int main(int argc, char *argv[]){
     using namespace std;
-    string line; 
-    cout << "Please input a string: "; getline(cin, line);
+    
+    if (argc >= 2){
+        string test1("c++");
+        assert(get_max_count(test1) == 2);
+    } else {
+        string line; 
+        cout << "Please input a string: "; 
+        getline(cin, line);
+        cout << get_max_count(line) << endl;
+    }
 
-    string test1("c++");
-    assert(get_max_count(test1) == 2);
 	return 0;
 
 }

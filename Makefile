@@ -1,12 +1,15 @@
-all: document example
+all: doc main test
 	@echo "All done!"
 	
-document:
+doc: Doxyfile ./src/main.cpp ./include/example.hpp
 	doxygen Doxyfile
 	@echo "Documentation extraction complete."
  
-example: ./src/main.cpp ./include/example.hpp
-	g++ -g -Wall -I ./include/ ./src/main.cpp -o ./bin/example
+main: ./src/main.cpp ./include/example.hpp
+	g++ -g -Wall -I ./include/ ./src/main.cpp -o ./bin/main
+
+test: ./src/main.cpp
+	./bin/main test
 	
 clean:
 	rm -rf ./doc/*
