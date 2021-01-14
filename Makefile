@@ -1,4 +1,4 @@
-all: doc concat test
+all: doc concat
 	@echo "All done!"
 	
 doc: Doxyfile ./src/concat_primes.cpp ./include/example.hpp
