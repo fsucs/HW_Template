@@ -9,7 +9,7 @@ concat: ./src/concat_primes.cpp ./include/example.hpp
 	g++ -g -Wall -std=c++11 -I ./include/ ./src/concat_primes.cpp -o ./bin/concat
 
 test: ./src/concat_primes.cpp
-	 ./bin/concat 3
+	 ./bin/concat test
 	
 clean:
 	rm -rf ./doc/*
