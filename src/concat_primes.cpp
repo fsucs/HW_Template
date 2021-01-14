@@ -48,13 +48,18 @@ int main(int argc, char *argv[]){
     if (argc >= 2){
         concat_primes = get_concatenated_primes();
         assert(get_slice_of_5(concat_primes, 3) == "71113");
+        cout<<"Unit Test 1 passed\n";
         assert(get_slice_of_5(concat_primes, 6) == "13171");
-        cout<<"passed Assert"<<endl;
-    } else{        
+        cout<<"Unit Test 2 passed\n";
+        
+        //Please add 3 more unit test here/
+    } else{
+        cout<< "Please input n: ";
         while(std::cin >> n)
         {
             concat_primes = get_concatenated_primes();
             std::cout << get_slice_of_5(concat_primes, n) << std::endl;
+            cout<< "Please input n: ";
         }
     }
     return 0;
