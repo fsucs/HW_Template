@@ -11,7 +11,7 @@ all: satcom
 	@echo "satcom compiled"
 
 satcom: $(OBJ)/main.o $(OBJ)/point3d.o
-	$(CC) $(LFLAGS) $(OBJ)/main.o $(OBJ)/point3d.o -o satcom
+	$(CC) $(LFLAGS) $(OBJ)/main.o $(OBJ)/point3d.o -o ./bin/satcom
 
 $(OBJ)/main.o: $(SRC)/main.cpp $(INCLUDE)/point3d.hpp
 	$(CC) $(CFLAGS) $(SRC)/main.cpp -o $(OBJ)/main.o
@@ -29,4 +29,4 @@ test:
 	test.sh
 
 clean:
-	rm -rf $(OBJ)/* satcom
+	rm -rf $(OBJ)/* satcom  $(DOC)/*

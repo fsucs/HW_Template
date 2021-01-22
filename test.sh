@@ -22,7 +22,7 @@ done
 # Do Input Testing
 for f in $TEST/1*.in; do
    f=${f%*.in}
-   ./satcom < ${f}.in > ${f}.tmp
+   ./bin/satcom < ${f}.in > ${f}.tmp
    DIFF=$(diff ${f}.ans ${f}.tmp)
    if [ "$DIFF" != "" ]; then
       echo "${f} failed <---"
