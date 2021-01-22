@@ -26,7 +26,7 @@ doc:
 
 test:
 	chmod 777 test.sh
-	test.sh
+	./test.sh
 
 clean:
 	rm -rf $(OBJ)/* satcom  $(DOC)/*
