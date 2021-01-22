@@ -1,16 +1,32 @@
-all: doc concat
-	@echo "All done!"
-	
-doc: Doxyfile ./src/concat_primes.cpp ./include/example.hpp
+CC = g++
+CFLAGS = --std=c++11 -Wall -c
+LFLAGS = --std=c++11
+INCLUDE = include
+SRC = src
+OBJ = obj
+DOC = doc
+TEST = test
+
+all: satcom
+	@echo "satcom compiled"
+
+satcom: $(OBJ)/main.o $(OBJ)/point3d.o
+	$(CC) $(LFLAGS) $(OBJ)/main.o $(OBJ)/point3d.o -o satcom
+
+$(OBJ)/main.o: $(SRC)/main.cpp $(INCLUDE)/point3d.hpp
+	$(CC) $(CFLAGS) $(SRC)/main.cpp -o $(OBJ)/main.o
+
+$(OBJ)/point3d.o: $(SRC)/point3d.cpp $(INCLUDE)/point3d.hpp
+	$(CC) $(CFLAGS) $(SRC)/point3d.cpp -o $(OBJ)/point3d.o
+
+.PHONY: clean doc test
+
+doc:
 	doxygen Doxyfile
-	@echo "Documentation extraction complete."
 
-concat: ./src/concat_primes.cpp ./include/example.hpp
-	g++ -g -Wall -std=c++11 -I ./include/ ./src/concat_primes.cpp -o ./bin/concat
+test:
+	chmod 777 test.sh
+	test.sh
 
-test: ./src/concat_primes.cpp
-	 ./bin/concat test
-	
 clean:
-	rm -rf ./doc/*
-	rm -rf ./bin/*
+	rm -rf $(OBJ)/* satcom
