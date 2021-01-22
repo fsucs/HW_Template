@@ -13,6 +13,10 @@
 
     Requires: C++11
 */
+
+# include "../include/point3d.hpp"
+
+
 int main() {
     return 0;
 }
