@@ -1,22 +1,21 @@
-/** 
-    @mainpage Outer Space Communications
+/**
+ * @brief Example driver program for class Roman
+ *  You can test your Roman class here.
+ */
 
-    @author Author
+#include <iostream>
+#include "roman.hpp"
 
-    What does this program do in short? Perhaps the name of the project goes here?
-*/
+int main () {
+    Roman p;
+    Roman s(1900);
+    std::cout << "Roman for 1900: " << s.GetRoman() << std::endl;
 
-/** \file main.cpp
-    \brief The code to solve the problem should be inside main.cpp
-    
-    Long explination goes here...
-
-    Requires: C++11
-*/
-
-# include "../include/point3d.hpp"
-
-
-int main() {
-    return 0;
+    Roman q("MCMXCV");
+    Roman r("MCM");
+    p.SetRoman("VII");
+    std::cout << p.GetInt() << std::endl;
+    std::cout << q.GetInt() << std::endl;
+    std::cout << r.GetInt() << std::endl;
 }
+
