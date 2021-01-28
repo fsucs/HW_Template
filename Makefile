@@ -11,8 +11,6 @@ TEST = test
 all: roman
 
 # Add target roman: Final executable file name should be roman. Compiled executable should be under current directory. You need to use $(OBJ)/main.o and $(OBJ)/roman.o to make this target. This two object files are made below.
-roman: ./src/main.cpp ./src/roman.hpp ./src/roman.cpp
-	g++ ./src/roman.cpp ./src/main.cpp -o roman
 
 # Add target $(OBJ)/main.o here 
 
