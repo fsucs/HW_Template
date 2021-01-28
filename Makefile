@@ -1,3 +1,5 @@
+# Please complete this Makefile as needed. You can study the Makefile in project 3 to get an idea of how to write Makefile.
+# For each target, you need to list the prerequisites, then write the command to make that target
 CC = g++
 CFLAGS = --std=c++11 -Wall -c
 LFLAGS = --std=c++11
@@ -8,16 +10,18 @@ TEST = test
 
 all: roman
 
-#Add target roman: Final executable file name should be roman
+# Add target roman: Final executable file name should be roman. Compiled executable should be under current directory. You need to use $(OBJ)/main.o and $(OBJ)/roman.o to make this target. This two object files are made below.
+roman: ./src/main.cpp ./src/roman.hpp ./src/roman.cpp
+	g++ ./src/roman.cpp ./src/main.cpp -o roman
 
-#add target $(OBJ)/main.o
+# Add target $(OBJ)/main.o here 
 
-#add target $(OBJ)/roman.o
-
-
+# Add target $(OBJ)/roman.o here
 
 
-#leave below un touched
+
+
+# leave below untouched
 .PHONY: clean doc test
 
 doc:

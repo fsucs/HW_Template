@@ -16,6 +16,6 @@ for file in $TEST/0*.cpp; do
    else
       echo "$prefix passed"
    fi
-   rm $prefix
+   # rm $prefix
 done
 
