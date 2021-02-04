@@ -8,25 +8,19 @@ OBJ = obj
 DOC = doc
 TEST = test
 
-all: roman
+# Add target osm: Final executable file name should be osm. Compiled executable should be under current directory. You need to use $(OBJ)/main.o and $(OBJ)/osm.o to make this target. This two object files are made below.
 
-# Add target roman: Final executable file name should be roman. Compiled executable should be under current directory. You need to use $(OBJ)/main.o and $(OBJ)/roman.o to make this target. This two object files are made below.
+# Add target $(OBJ)/main.o here
 
-# Add target $(OBJ)/main.o here 
-
-# Add target $(OBJ)/roman.o here
+# Add target $(OBJ)/osm.o here
 
 
-
-
-# leave below untouched
 .PHONY: clean doc test
 
-doc:
-	doxygen doxyfile
+# Add target doc here
 
 test:
 	./test.sh
 
-clean:
-	rm -rf $(OBJ)/* roman
+# Add clean here. You have to remove the project executable and any object code generated during compilation.
+

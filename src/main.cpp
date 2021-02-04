@@ -1,21 +1,19 @@
-/**
- * @brief Example driver program for class Roman
- *  You can test your Roman class here.
- */
-
 #include <iostream>
-#include "roman.hpp"
+#include <string>
+#include "osm.hpp"
 
-int main () {
-    Roman p;
-    Roman s(1900);
-    std::cout << "Roman for 1900: " << s.GetRoman() << std::endl;
+int main() {
+   std::string fileName;
+   std::cout << "Enter file name: ";
+   std::cin >> fileName;
 
-    Roman q("MCMXCV");
-    Roman r("MCM");
-    p.SetRoman("VII");
-    std::cout << p.GetInt() << std::endl;
-    std::cout << q.GetInt() << std::endl;
-    std::cout << r.GetInt() << std::endl;
+   Osm osm = Osm(fileName);
+
+   std::cout << osm.getNumNodes() << std::endl;
+   std::cout << osm.getNumWays() << std::endl;
+   std::cout << osm.getNumHighways() << std::endl;
+   std::cout << osm.getMeanLat() << std::endl;
+   std::cout << osm.getMeanLon() << std::endl;
+
+   return 0;
 }
-
