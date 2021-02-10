@@ -7,8 +7,8 @@ int main() {
    Osm test = Osm("tests/map1.osm");
 
    test.ParseOsmFile("tests/map3.osm");
-   assert(test.getNumWays() == 567 &&
-          test.getNumHighways() == 263);
+   assert(test.getNumWays() == 567);
+   assert(test.getNumHighways() == 263);
 
    return 0;
 }
