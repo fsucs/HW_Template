@@ -1,26 +1,26 @@
-# Please complete this Makefile as needed. You can study the Makefile in project 3 to get an idea of how to write Makefile.
-# For each target, you need to list the prerequisites, then write the command to make that target
-CC = g++
-CFLAGS = --std=c++11 -Wall -c
-LFLAGS = --std=c++11
-SRC = src
-OBJ = obj
-DOC = doc
-TEST = test
+# Please complete this Makefile as needed. For each target, you need to list the prerequisites, then write the command to make that target
 
-# Add target osm: Final executable file name should be osm. Compiled executable should be under current directory. You need to use $(OBJ)/main.o and $(OBJ)/osm.o to make this target. This two object files are made below.
+CC := g++			# Compiler to use.
+CFLAGS := -c -g -Wall -Werror -Wpedantic --std=c++11	# Compilation flags.
+LFLAGS := -g		# Linker flags.
+SRC := ./src		# Source code directory.
+OBJ := ./obj		# Object code directory.
+TEST := ./tests		# Test code directory
 
-# Add target $(OBJ)/main.o here
+# Add target matman: Final executable file name should be matman. Compiled executable should be under current directory. You need to use $(OBJ)/matman.o and $(OBJ)/matrix.o to make this target. This two object files are made below.
 
-# Add target $(OBJ)/osm.o here
+# Add target $(OBJ)/matman.o here
+
+# Add target $(OBJ)/matrix.o here
 
 
-.PHONY: clean doc test
-
-# Add target doc here
-
+# test
 test:
 	./test.sh
 
-# Add clean here. You have to remove the project executable and any object code generated during compilation.
+.PHONY: clean doc
 
+# Add target clean here, so 'make clean' can remove the project executable and any object code generated during compilation.
+
+
+# Add target doc here, so 'make doc' can enerate HTML documentation.
