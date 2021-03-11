@@ -1,35 +1,21 @@
 #!/bin/bash
 
 # File: test.sh
-# Description: Does unit testing on matrix class.
+# Description: test sudoku functionality of Matrix class
 
 SRC="./src"     # Source code dir.
 TEST="./tests"   # Unit tests dir.
 
-# Do Class Functionality Testing
-for file in $TEST/0*.cpp; do
-   prefix=${file%*.cpp}
-   g++ --std=c++11 $file $SRC/matrix.cpp -o $prefix 2>/dev/null
-   $prefix 2>/dev/null
-   if [ $? -ne 0 ]; then
-      echo "$prefix failed <---"
-   else
-      echo "$prefix passed"
-   fi
-   rm $prefix
-done
-
-# Do file in/out testing
-g++ --std=c++11 $SRC/matrix.cpp $TEST/100.cpp -o $TEST/100 2>/dev/null
-$TEST/100
-for f in $TEST/t*.pgm; do
-   f=${f%*.pgm}
-   DIFF=$(diff -d -I '^#' -I '^ #' ${f}.ans ${f}.pgm)
+g++ --std=c++11 $SRC/matrix.cpp $TEST/tests.cpp -o $TEST/sudoku_test 2>/dev/null
+${TEST}/sudoku_test
+for f in $TEST/*.sol; do
+   f=${f%*.sol}
+   DIFF=$(diff ${f}.ans ${f}.sol)
    if [ "$DIFF" != "" ]; then
       echo "${f} failed <---"
    else
       echo "${f} passed"
    fi
-   rm ${f}.pgm
+   rm ${f}.sol
 done
-rm $TEST/100
+rm $TEST/sudoku_test

@@ -1,18 +1,25 @@
-# Please complete this Makefile as needed. For each target, you need to list the prerequisites, then write the command to make that target
+# Compiler to use.
+CC := g++
+# Compilation flags.
+CFLAGS := -c -g -Wall -Werror -Wpedantic --std=c++11
+# Linker flags.
+LFLAGS := -g
+# Source code directory.
+SRC := ./src
+# Object code directory.
+OBJ := ./obj
+# Test code directory
+TEST := ./tests
 
-CC := g++			# Compiler to use.
-CFLAGS := -c -g -Wall -Werror -Wpedantic --std=c++11	# Compilation flags.
-LFLAGS := -g		# Linker flags.
-SRC := ./src		# Source code directory.
-OBJ := ./obj		# Object code directory.
-TEST := ./tests		# Test code directory
+# main - interactive matrix manipulation utility
+main: $(OBJ)/main.o $(OBJ)/matrix.o
+	$(CC) $(LFLAGS) $(OBJ)/main.o $(OBJ)/matrix.o -o main
 
-# Add target matman: Final executable file name should be matman. Compiled executable should be under current directory. You need to use $(OBJ)/matman.o and $(OBJ)/matrix.o to make this target. This two object files are made below.
+$(OBJ)/main.o: $(SRC)/main.cpp $(SRC)/matrix.hpp
+	$(CC) $(CFLAGS) $(SRC)/main.cpp -o $(OBJ)/main.o
 
-# Add target $(OBJ)/matman.o here
-
-# Add target $(OBJ)/matrix.o here
-
+$(OBJ)/matrix.o: $(SRC)/matrix.cpp $(SRC)/matrix.hpp
+	$(CC) $(CFLAGS) $(SRC)/matrix.cpp -o $(OBJ)/matrix.o
 
 # test
 test:
@@ -20,7 +27,10 @@ test:
 
 .PHONY: clean doc
 
-# Add target clean here, so 'make clean' can remove the project executable and any object code generated during compilation.
+# Remove object files and executable to ensure next make is entire.
+clean:
+	rm -rf $(OBJ)/*.o main
 
-
-# Add target doc here, so 'make doc' can enerate HTML documentation.
+# Generate HTML documentation.
+doc:
+	doxygen doxyfile
