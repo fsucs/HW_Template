@@ -36,7 +36,7 @@ void Point2D::setCoords(double x, double y) {
  * @brief Access elements
  */
 double& Point2D::operator()(unsigned i) {
-   if (i != 0 && i != 1) throw InvalidIndex();
+   if (i != 0 || i != 1) throw InvalidIndex();
    else return coord[i];
 }
 
